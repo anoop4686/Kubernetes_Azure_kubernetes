@@ -1,24 +1,36 @@
 FROM ubuntu
-
 # update the docker package
 RUN apt-get update -y
 
 # install sudo and apt package in docker image
-RUN apt-get install -y apt-utils
-RUN apt-get -y install sudo 
-RUN apt-get install -y curl
+RUN apt-get -y install sudo &&  apt-get install -y apt-utils
 
-# Java Install
-RUN apt-get update -y
-# Run sudo apt install -y openjdk-11-jdk 
+# Install apache2 package in docker image
+RUN apt-get install apache2 -y     
+RUN apt-get install apache2-utils -y
 
-# Jenking Install
+# install network related package in docker image
+RUN apt-get install net-tools -y 
 
-RUN curl -fsSL https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo tee \
-  /usr/share/keyrings/jenkins-keyring.asc > /dev/null
-RUN echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] \
-  https://pkg.jenkins.io/debian-stable binary/ | sudo tee \
-  /etc/apt/sources.list.d/jenkins.list > /dev/null
-RUN sudo apt update -y
-RUN sudo apt install jenkins -y
-RUN sudo systemctl restart jenkins
+# To start the apache services
+RUN echo "ServerName allerin.localhost" >> /etc/apache2/apache2.conf
+RUN sudo service apache2 restart
+
+# Hosting custom website
+RUN mkdir -p /var/www/webapp/
+
+# Copy the custom html file in Apache2 
+COPY index.html kubnetes.png /var/www/webapp/
+COPY info.net.conf  /etc/apache2/sites-available/
+
+# enable the custom website
+RUN a2ensite info.net.conf
+
+# Disbale the default Apache2 site
+RUN a2dissite 000-default.conf
+
+# Command to restart the Apache service and run in Foreground
+CMD ["apachectl", "-D", "FOREGROUND"]
+EXPOSE 80
+
+"apachectl","-D","FOREGROUND"
