@@ -32,5 +32,3 @@ RUN a2dissite 000-default.conf
 # Command to restart the Apache service and run in Foreground
 CMD ["apachectl", "-D", "FOREGROUND"]
 EXPOSE 80
-
-"apachectl","-D","FOREGROUND"
