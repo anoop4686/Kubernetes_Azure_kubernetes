@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: web_app
+  name: web-app
 spec:
   containers:
-  - name: web_app
+  - name: web-app
     image: anoop4686/images:web_host_version1
     ports:
     - containerPort: 80
