@@ -1,7 +1,6 @@
-docker build -t anoop4686/images:web_host_version1 .
-docker login -u anoop4686 -p Anoop@8898
-docker push anoop4686/images:web_host_version1 .
+docker build -t anoop4686/images:web_host_version1 /var/lib/jenkins/web_app/
+docker push anoop4686/images:web_host_version1 
 
-kubectl apply -f pod.yaml
-kubectl apply -f deploy.yaml
-kubectl apply -f servce.yaml
+kubectl apply -f /var/lib/jenkins/web_app/pod.yaml
+kubectl apply -f /var/lib/jenkins/web_app/deploy.yaml
+kubectl apply -f /var/lib/jenkins/web_app/servce.yaml
