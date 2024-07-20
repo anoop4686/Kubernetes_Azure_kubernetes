@@ -19,7 +19,7 @@ RUN sudo apt install apache2 -y && \
 #RUN sudo systemctl restart sshd.service
 
 # copy file local machine to Docker host machine
-COPY ~/currency /var/www/html
+COPY currency /var/www/html
 CMD ["cp /var/www/html/000-default.conf /etc/apache2/sites-available"]
 EXPOSE 80 443
 
