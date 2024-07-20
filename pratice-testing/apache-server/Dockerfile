@@ -23,6 +23,6 @@ COPY currency /var/www/html
 CMD ["cp /var/www/html/000-default.conf /etc/apache2/sites-available"]
 EXPOSE 80 443
 
-CMD ["systemctl restart apache2.service"]
+RUN systemctl restart apache2.service
 
 
