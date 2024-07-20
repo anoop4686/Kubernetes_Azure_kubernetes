@@ -19,7 +19,7 @@ RUN sudo apt install apache2 -y && \
 #RUN sudo systemctl restart sshd.service
 
 # copy file local machine to Docker host machine
-COPY /home/anoop/git/html_web_page/currency /var/www/html
+COPY go /home/anoop/git/html_web_page/currency /var/www/html
 COPY /home/anoop/git/html_web_page/currency/apache-conf-file/000-default.conf /etc/apache2/sites-available
 EXPOSE 80 443
 
