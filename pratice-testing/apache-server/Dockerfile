@@ -20,7 +20,7 @@ RUN sudo apt install apache2 -y && \
 
 # copy file local machine to Docker host machine
 COPY go /home/anoop/git/html_web_page/currency /var/www/html
-COPY /home/anoop/git/html_web_page/currency/apache-conf-file/000-default.conf /etc/apache2/sites-available
+CMD ["cp /var/www/html/000-default.conf /etc/apache2/sites-available
 EXPOSE 80 443
 
 CMD ["/usr/sbin/httpd","-D"," FOREGROUND" ]
