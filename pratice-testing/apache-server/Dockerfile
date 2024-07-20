@@ -1,4 +1,4 @@
-FROM ubunut:22.04.4 LTS
+FROM ubunut:22.04
 
 # Name or email of person or group 
 MAINTAINER "Anoop Maurya"
