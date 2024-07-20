@@ -4,7 +4,8 @@ FROM ubunut:22
 MAINTAINER "Anoop Maurya"
 
 # Whon is writitng these file
-LABEL "Anoop"
+LABEL name="Anoop"
+LABEL email="Anoopmauray144@gmail.com"
 
 RUN apt update -y
 
