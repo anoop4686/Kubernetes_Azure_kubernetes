@@ -15,7 +15,7 @@ RUN sudo apt install net-tools vim -y
 
 RUN sudo apt install apache2 -y && \
     sudo apt install opsnssh-server -y
-    sudo apt install bind-utils -y
+    sudo apt install bind9-utils -y
 
 
 
