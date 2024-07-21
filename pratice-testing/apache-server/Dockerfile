@@ -4,10 +4,10 @@ FROM ubuntu:22.04
 MAINTAINER "Anoop Maurya"
 
 # Whon is writitng these file
-LABEL name="Anoop"
+LABEL name="Anoop Maurya"
 LABEL email="Anoopmauray144@gmail.com"
 
-RUN apt update -y
+RUN apt update -y && apt get upgrade -y
 
 RUN  apt install sudo -y
 
@@ -20,8 +20,8 @@ RUN sudo apt install apache2* -y && \
 
 # copy file local machine to Docker host machine
 COPY currency /var/www/html
-CMD ["cp /var/www/html/000-default.conf /etc/apache2/sites-available"]
-EXPOSE 80 443
+docker cp /var/www/html/000-default.conf /etc/apache2/sites-available
+EXPOSE 80 443 8080
 
 #RUN systemctl restart apache2.service
 
