@@ -7,7 +7,7 @@ MAINTAINER "Anoop Maurya"
 LABEL name="Anoop Maurya"
 LABEL email="Anoopmauray144@gmail.com"
 
-RUN apt update -y && apt get upgrade -y
+RUN apt update -y && apt upgrade -y
 
 RUN  apt install sudo -y
 
