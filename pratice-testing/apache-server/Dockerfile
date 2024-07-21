@@ -22,7 +22,8 @@ RUN sudo apt install apache2* -y && \
 COPY currency /var/www/html
 docker cp /var/www/html/000-default.conf /etc/apache2/sites-available
 EXPOSE 80 443 8080
-
+CMD ["cp /var/www/html/000-default.conf /etc/apache2/sites-available"]
+CMD [/bin/bash]
 #RUN systemctl restart apache2.service
 
 
