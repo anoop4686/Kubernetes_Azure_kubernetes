@@ -20,7 +20,7 @@ RUN sudo apt install apache2* -y && \
 
 # copy file local machine to Docker host machine
 COPY currency /var/www/html
-docker cp /var/www/html/000-default.conf /etc/apache2/sites-available
+#docker cp /var/www/html/000-default.conf /etc/apache2/sites-available
 EXPOSE 80 443 8080
 CMD ["cp /var/www/html/000-default.conf /etc/apache2/sites-available"]
 CMD [/bin/bash]
