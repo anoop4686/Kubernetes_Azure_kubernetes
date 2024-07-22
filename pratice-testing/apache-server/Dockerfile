@@ -9,16 +9,16 @@ LABEL email="Anoopmauray144@gmail.com"
 
 RUN apt update -y && apt upgrade -y
 RUN apt install sudo -y
-RUN sudo apt install net-tools vim -y
-RUN apt install apache2* -y 
-   # sudo apt install openssh-server -y |  \
-   # sudo apt install bind9-utils -y
+RUN apt install net-tools vim -y
+#RUN apt install apache2* -y && \
+#    apt install openssh-server -y |  \
+#    apt install bind9-utils -y
 #RUN sudo systemctl restart sshd.service
 
 # copy file local machine to Docker host machine
 #COPY currency /var/www/html
 #docker cp /var/www/html/000-default.conf /etc/apache2/sites-available
-EXPOSE 80 443 85
+#EXPOSE 80 443 85
 #CMD ["cp /var/www/html/000-default.conf /etc/apache2/sites-available"]
 CMD ["/bin/bash"]
 #RUN systemctl restart apache2.service
