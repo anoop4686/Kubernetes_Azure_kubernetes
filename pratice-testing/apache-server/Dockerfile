@@ -1,4 +1,4 @@
-FROM ubuntu:24.04
+FROM rhel7
 
 # Name or email of person or group 
 MAINTAINER "Anoop Maurya"
@@ -7,12 +7,12 @@ MAINTAINER "Anoop Maurya"
 LABEL name="Anoop Maurya"
 LABEL email="Anoopmauray144@gmail.com"
 
-RUN apt update -y && apt upgrade -y
-RUN apt install sudo -y
-RUN apt install net-tools vim -y
-RUN apt install apache2* -y && \
-    apt install openssh-server -y |  \
-    apt install bind9-utils -y
+RUN yum update -y && yum upgrade -y
+RUN yum install sudo -y
+RUN yum install net-tools vim -y
+RUN yum install apache2* -y && \
+    yum install openssh-server -y |  \
+    yum install bind9-utils -y
 #RUN sudo systemctl restart sshd.service
 
 # copy file local machine to Docker host machine
