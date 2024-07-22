@@ -13,7 +13,7 @@ RUN sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|
 
 RUN yum update -y && yum upgrade -y
 RUN yum install net-tools vim -y
-RUN yum install httpd* -y && \
+RUN yum install httpd -y && \
     yum install openssh-server -y |  \
     yum install bind9-utils -y
 #RUN sudo systemctl restart sshd.service
