@@ -1,4 +1,4 @@
-FROM ubuntu:24.04
+FROM centos
 
 # Name or email of person or group 
 MAINTAINER "Anoop Maurya"
@@ -7,12 +7,15 @@ MAINTAINER "Anoop Maurya"
 LABEL name="Anoop Maurya"
 LABEL email="Anoopmauray144@gmail.com"
 
-RUN apt update -y && apt upgrade -y
-RUN apt install sudo -y
-RUN apt install net-tools vim -y
-RUN apt install apache2* -y && \
-    apt install openssh-server -y |  \
-    apt install bind9-utils -y
+RUN cd /etc/yum.repos.d/
+RUN sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-*
+RUN sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g' /etc/yum.repos.d/CentOS-*
+
+RUN yum update -y && yum upgrade -y
+RUN yum install net-tools vim -y
+RUN yum install httpd* -y && \
+    yum install openssh-server -y |  \
+    yum install bind9-utils -y
 #RUN sudo systemctl restart sshd.service
 
 # copy file local machine to Docker host machine
@@ -23,7 +26,7 @@ RUN apt install apache2* -y && \
 EXPOSE 80 443 85
 
 #CMD ["cp /var/www/html/000-default.conf /etc/apache2/sites-available"]
-CMD ["apache2-foreground"]
+#CMD [""]
 #RUN systemctl restart apache2.service
 
 
