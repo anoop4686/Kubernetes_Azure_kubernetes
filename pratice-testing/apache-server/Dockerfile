@@ -13,6 +13,13 @@ RUN apt install net-tools vim -y
 RUN apt install apache2* -y && \
     apt install openssh-server -y |  \
     apt install bind9-utils -y
+
+
+EXPOSE 80 
+    
+ENTRYPOINT [ "apache2ctl" ]
+
+CMD ["-DFOREGROUND"]
 #RUN sudo systemctl restart sshd.service
 
 # copy file local machine to Docker host machine
