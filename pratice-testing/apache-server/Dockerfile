@@ -1,4 +1,4 @@
-FROM ubuntu
+FROM ubuntu:20.04
 
 # Name or email of person or group 
 MAINTAINER "Anoop Maurya"
@@ -18,7 +18,7 @@ RUN sudo apt install apache2* -y && \
 # copy file local machine to Docker host machine
 #COPY currency /var/www/html
 #docker cp /var/www/html/000-default.conf /etc/apache2/sites-available
-EXPOSE 80 443
+EXPOSE 80 443 85
 #CMD ["cp /var/www/html/000-default.conf /etc/apache2/sites-available"]
 CMD ["/bin/bash"]
 #RUN systemctl restart apache2.service
