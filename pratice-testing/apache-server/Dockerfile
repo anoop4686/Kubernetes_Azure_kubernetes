@@ -20,10 +20,10 @@ RUN apt install apache2* -y && \
 
 #docker cp /var/www/html/000-default.conf /etc/apache2/sites-available
 
-EXPOSE 80 443 85
+#EXPOSE 80 443 85
 
 #CMD ["cp /var/www/html/000-default.conf /etc/apache2/sites-available"]
-CMD ["apache2-foreground"]
+#CMD ["apache2-foreground"]
 #RUN systemctl restart apache2.service
 
 
