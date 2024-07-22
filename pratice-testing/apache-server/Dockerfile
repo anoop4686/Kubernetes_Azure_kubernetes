@@ -10,7 +10,7 @@ LABEL email="Anoopmauray144@gmail.com"
 RUN apt update -y && apt upgrade -y
 RUN apt install sudo -y
 RUN sudo apt install net-tools vim -y
-RUN sudo apt install apache2* -y 
+RUN apt install apache2* -y 
    # sudo apt install openssh-server -y |  \
    # sudo apt install bind9-utils -y
 #RUN sudo systemctl restart sshd.service
