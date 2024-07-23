@@ -19,22 +19,11 @@ RUN apt-get install apache2-utils -y
 
 RUN apt install tcl -y
 
-EXPOSE 80 
+EXPOSE 80 8081
     
 ENTRYPOINT [ "apache2ctl" ]
 
 CMD ["-DFOREGROUND"]
-#RUN sudo systemctl restart sshd.service
 
-# copy file local machine to Docker host machine
-#COPY currency /var/www/html
-
-#docker cp /var/www/html/000-default.conf /etc/apache2/sites-available
-
-#EXPOSE 80 443 85
-
-#CMD ["cp /var/www/html/000-default.conf /etc/apache2/sites-available"]
-#CMD ["apache2-foreground"]
-#RUN systemctl restart apache2.service
 
 
