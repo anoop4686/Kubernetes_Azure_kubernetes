@@ -10,16 +10,17 @@ LABEL email="Anoopmauray144@gmail.com"
 COPY ./Dockerfile /root/
 
 # Installing recommanded package
-RUN apt update -y  
-RUN apt-cache search openjdk | grep openjdk-17
-RUN apt update -y && \    
-    apt install openjdk-17-jre -y | \
-    apt install openjdk-17-jdk -y
-
-#RUN apt update -y 
+#RUN apt update -y  
 #RUN apt-cache search openjdk | grep openjdk-17
-#RUN apt install openjdk-17-jre -y
-#RUN apt install openjdk-17-jdk -y
+#RUN apt update -y && \    
+#    apt install openjdk-17-jre -y | \
+#    apt install openjdk-17-jdk -y
+
+RUN apt update -y 
+RUN apt-cache search openjdk | grep openjdk-17
+RUN apt update -y 
+RUN apt install openjdk-17-jre -y
+RUN apt install openjdk-17-jdk -y
 
 RUN mkdir /opt/tomcat
 
