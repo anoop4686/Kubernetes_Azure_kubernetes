@@ -8,9 +8,13 @@ LABEL name="Anoop Maurya"
 LABEL email="Anoopmauray144@gmail.com"
 
 # Installing recommanded package
-RUN apt update -y | \ 
-    apt install openjdk-17-jre -y && \
-    apt install openjdk-17-jdk -y
+#RUN apt update -y | \ 
+#    apt install openjdk-17-jre -y && \
+#    apt install openjdk-17-jdk -y
+
+RUN apt update -y 
+RUN apt install openjdk-17-jre -y 
+RUN apt install openjdk-17-jdk -y
 
 RUN mkdir /opt/tomcat
 
