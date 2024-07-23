@@ -17,7 +17,7 @@ RUN apt-get install apache2 -y && \
     apt-get install apache2-utils -y | \
     apt install tcl -y
 
-COPY ~/currency /var/www/html
+COPY currency /var/www/html
 
 EXPOSE 80 8081
     
