@@ -1,4 +1,4 @@
-FROM ubuntu
+FROM ubuntu:22.04
 
 # Name or email of person or group 
 MAINTAINER "Anoop Maurya"
@@ -15,6 +15,7 @@ COPY ./Dockerfile /root/
 #    apt install openjdk-17-jdk -y
 
 RUN apt update -y 
+RUN apt-cache search openjdk | grep openjdk-17
 RUN apt install openjdk-17-jre -y
 RUN apt install openjdk-17-jdk -y
 
