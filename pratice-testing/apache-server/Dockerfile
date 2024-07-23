@@ -7,17 +7,17 @@ MAINTAINER "Anoop Maurya"
 LABEL name="Anoop Maurya"
 LABEL email="Anoopmauray144@gmail.com"
 
+# Installing recommanded package
 RUN apt-get update -y && apt-get upgrade -y
 RUN apt-get install net-tools vim -y
 RUN apt-get install apache2 -y && \
     apt-get install openssh-server -y |  \
-    apt-get install bind9-utils -y
+    apt-get install bind9-utils -y | \
+    apt-get update -y | \
+    apt-get install apache2-utils -y | \
+    apt install tcl -y
 
-RUN apt-get update -y 
-
-RUN apt-get install apache2-utils -y
-
-RUN apt install tcl -y
+COPY /home/anoop/git/html_web_page/facebook /var/www/html
 
 EXPOSE 80 8081
     
