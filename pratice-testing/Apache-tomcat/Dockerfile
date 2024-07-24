@@ -32,3 +32,5 @@ WORKDIR /opt/tomcat/apache-tomcat-10.1.26
 EXPOSE 8080 8081 8085 443
 
 CMD ["/opt/tomcat/apache-tomcat-10.1.26/bin/startup.sh","run"]
+
+CMD ["/bin/bash"]
