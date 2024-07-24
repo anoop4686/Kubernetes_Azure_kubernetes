@@ -27,11 +27,8 @@ RUN mkdir /opt/tomcat
 ## ADD command is used to copy and Extract file
 ADD ./ apache-tomcat-10.1.26.tar.gz /opt/tomcat/
 
-WORKDIR /opt/tomcat/apache-tomcat-10.1.26
+WORKDIR /opt/tomcat/apache-tomcat-10.1.26/bin
 
 EXPOSE 8080 8081 8085 443
 
-ENTRYPOINT [ "/opt/tomcat/apache-tomcat-10.1.26/bin/startup.sh","run"]
-
-CMD ["-DFOREGROUND"]
-#CMD ["/bin/bash"]
+CMD ["/opt/tomcat/apache-tomcat-10.1.26/bin/catalina.sh","run"]
