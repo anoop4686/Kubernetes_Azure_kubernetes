@@ -29,7 +29,7 @@ ADD ./ apache-tomcat-10.1.26.tar.gz /opt/tomcat/
 
 RUN echo "export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64/" > /root/.bash_profile
 
-RUN source /root/.bash_profile
+#RUN source /root/.bash_profile
 
 WORKDIR /opt/tomcat/apache-tomcat-10.1.26/bin/
 
