@@ -27,7 +27,11 @@ RUN mkdir /opt/tomcat
 ## ADD command is used to copy and Extract file
 ADD ./ apache-tomcat-10.1.26.tar.gz /opt/tomcat/
 
-WORKDIR /opt/tomcat/apache-tomcat-10.1.26/bin
+RUN echo "export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64/" > /root/.bash_profile
+
+RUN source /root/.bash_profile
+
+WORKDIR /opt/tomcat/apache-tomcat-10.1.26/bin/
 
 EXPOSE 8080 8081 8085 443
 
