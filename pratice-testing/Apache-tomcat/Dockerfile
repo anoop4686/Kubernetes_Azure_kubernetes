@@ -10,17 +10,17 @@ LABEL email="Anoopmauray144@gmail.com"
 COPY ./Dockerfile /root/
 
 # Installing recommanded package
-#RUN apt update -y  
-#RUN apt-cache search openjdk | grep openjdk-17
-#RUN apt update -y && \    
-#    apt install openjdk-17-jre -y | \
-#    apt install openjdk-17-jdk -y
+RUN apt update -y && \ 
+    apt-cache search openjdk | grep openjdk-17 && \
+    apt update -y && \    
+    apt install openjdk-17-jre -y | \
+    apt install openjdk-17-jdk -y
 
-RUN apt update -y 
-RUN apt-cache search openjdk | grep openjdk-17
-RUN apt update -y 
-RUN apt install openjdk-17-jre -y
-RUN apt install openjdk-17-jdk -y
+#RUN apt update -y 
+#RUN apt-cache search openjdk | grep openjdk-17
+#RUN apt update -y 
+#RUN apt install openjdk-17-jre -y
+#RUN apt install openjdk-17-jdk -y
 
 RUN mkdir /opt/tomcat
 
@@ -33,6 +33,6 @@ RUN echo "export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64/" > /root/.bash_pr
 
 WORKDIR /opt/tomcat/apache-tomcat-10.1.26/bin/
 
-EXPOSE 8080 8081 8085 443
+EXPOSE 80 8080 8081 8085 443
 
 CMD ["/opt/tomcat/apache-tomcat-10.1.26/bin/catalina.sh","run"]
