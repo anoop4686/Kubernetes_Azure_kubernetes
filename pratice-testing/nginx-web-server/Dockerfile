@@ -21,8 +21,8 @@ RUN apt install curl -y
 RUN apt install nginx -y
 
 ## copy conf file 
-#COPY ./nginx.conf   /etc/nginx/conf.d/default.conf
-#Copy ./shaddi /usr/share/nginx/html
+COPY ./nginx.conf   /etc/nginx/conf.d/default.conf
+Copy ./shaddi /usr/share/nginx/html
 Copy ./Dockerfile /root/
 
 #create volume to prevent ddisaster. If something went wrong then it wil use.
