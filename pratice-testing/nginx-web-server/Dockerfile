@@ -32,4 +32,4 @@ VOLUME /etc/nginx
 EXPOSE 80 443
 
 # daemon off  is used to sent nfinx in foreground
-CMD ["nginx","-g","daemon off;" ]
+ENTRYPOINT ["nginx","-g","daemon off;" ]
