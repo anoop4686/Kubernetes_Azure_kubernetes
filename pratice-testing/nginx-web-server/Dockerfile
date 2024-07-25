@@ -13,7 +13,7 @@ COPY ./Dockerfile /root/
 RUN apt update -y && \
     apt install net-tools -y | \
     apt install curl -y | \
-    apt install nginx
+    apt install nginx -y
 
 ## copy conf file 
 COPY ./nginx.conf   /etc/nginx/conf.d/default.conf
