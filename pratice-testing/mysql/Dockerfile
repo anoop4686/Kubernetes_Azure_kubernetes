@@ -11,7 +11,7 @@ COPY ./Dockerfile /root/
 
 # Installing recommanded package
 RUN apt update -y && \
-    apt install net-tools curl mysql-server -y
+    apt install mysql-server -y
 
 ## copy conf file 
 COPY ./Dockerfile /root/
