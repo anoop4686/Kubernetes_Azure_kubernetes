@@ -20,4 +20,4 @@ Copy ./Dockerfile /root/
 VOLUME /var/lib/mysql
 VOLUME /etc/mysql
 
-CMD [ "mysql" ]
+CMD [ "mysqld" ]
