@@ -22,7 +22,6 @@ RUN apt install nginx -y
 
 ## copy conf file 
 #COPY ./nginx.conf   /etc/nginx/conf.d/default.conf
-Copy ./shaddi /usr/share/nginx/html
 COPY ./shaddi /var/www/html
 Copy ./Dockerfile /root/
 
