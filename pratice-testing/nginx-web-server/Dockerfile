@@ -10,10 +10,15 @@ LABEL email="Anoopmauray144@gmail.com"
 COPY ./Dockerfile /root/
 
 # Installing recommanded package
-RUN apt update -y && \
-    apt install net-tools -y | \
-    apt install curl -y | \
-    apt install nginx -y
+#RUN apt update -y && \
+#    apt install net-tools -y | \
+#    apt install curl -y | \
+#    apt install nginx -y
+
+RUN apt update -y &&  apt upgrade -y
+RUN apt install net-tools -y
+RUN apt install curl -y 
+RUN apt install nginx -y
 
 ## copy conf file 
 COPY ./nginx.conf   /etc/nginx/conf.d/default.conf
