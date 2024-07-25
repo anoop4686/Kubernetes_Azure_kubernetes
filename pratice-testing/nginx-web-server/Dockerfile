@@ -27,8 +27,8 @@ COPY ./shaddi /var/www/html
 Copy ./Dockerfile /root/
 
 #create volume to prevent ddisaster. If something went wrong then it wil use.
-#VOLUME /usr/share/nginx/html
-#VOLUME /etc/nginx
+VOLUME /usr/share/nginx/html
+VOLUME /etc/nginx
 
 EXPOSE 80 443
 
