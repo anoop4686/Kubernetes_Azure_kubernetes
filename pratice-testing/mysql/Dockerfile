@@ -11,16 +11,16 @@ COPY ./Dockerfile /root/
 
 # Installing recommanded package
 RUN apt update -y && \
-    apt install net-tools curl mysql-server* -y
+    apt install net-tools curl mysql-server -y
 
 ## copy conf file 
 COPY ./Dockerfile /root/
-COPY ./mysql-user.sh /usr/local/bin/
 
 #create volume to prevent ddisaster. If something went wrong then it wil use.
 VOLUME /var/lib/mysql
 VOLUME /etc/mysql
 
+COPY mysql-user.sh /usr/local/bin/
 ENTRYPOINT ["mysql-user.sh"]
 
 CMD [ "mysqld" ]
