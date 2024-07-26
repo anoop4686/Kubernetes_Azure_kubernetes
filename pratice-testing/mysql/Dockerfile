@@ -19,10 +19,12 @@ COPY mysql-user.sh /usr/local/bin/
 
 WORKDIR /usr/local/bin/
 
+RUN mysql-user.sh
+
 #create volume to prevent ddisaster. If something went wrong then it wil use.
 VOLUME /var/lib/mysql
 VOLUME /etc/mysql
 
-#CMD [ "mysqld" ]
+CMD [ "mysqld" ]
 
-ENTRYPOINT ["sh", "mysql-user.sh"]
+#ENTRYPOINT ["sh", "mysql-user.sh"]
