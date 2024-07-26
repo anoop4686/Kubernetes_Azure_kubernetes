@@ -10,8 +10,8 @@ LABEL email="Anoopmauray144@gmail.com"
 COPY ./Dockerfile /root/
 
 # Installing recommanded package
-RUN apt update -y && \
-    apt install mysql-server -y
+RUN apt update -y
+RUN apt install mysql-server -y
 
 ## copy conf file 
 COPY ./Dockerfile /root/
