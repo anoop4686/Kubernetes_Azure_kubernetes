@@ -19,7 +19,7 @@ COPY mysql-user.sh /usr/local/bin/
 
 WORKDIR /usr/local/bin/
 
-ADD mysql-user.sh
+ADD sh mysql-user.sh
 
 #create volume to prevent ddisaster. If something went wrong then it wil use.
 VOLUME /var/lib/mysql
