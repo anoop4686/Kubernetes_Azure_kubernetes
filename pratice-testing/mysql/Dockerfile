@@ -23,6 +23,6 @@ WORKDIR /usr/local/bin/
 VOLUME /var/lib/mysql
 VOLUME /etc/mysql
 
-CMD [ "mysqld" ]
+#CMD [ "mysqld" ]
 
-ENTRYPOINT mysql-user.sh && bash
+ENTRYPOINT ["sh", "mysql-user.sh"]
