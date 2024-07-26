@@ -1,5 +1,5 @@
 #! /usr/bin/bash
-sleep 10
+sleep 30
 mysql -e "CREATE USER anoop@localhost IDENTIFIED BY '12345';"
 mysql -e "GRANT ALL PRIVILEGES ON *.* TO 'anoop'@'localhost' WITH GRANT OPTION;"
 mysql -e "FLUSH PRIVILEGES;"
