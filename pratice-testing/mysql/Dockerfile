@@ -21,6 +21,6 @@ VOLUME /var/lib/mysql
 VOLUME /etc/mysql
 
 COPY mysql-user.sh /usr/local/bin/
-ENTRYPOINT ["mysql-user.sh"]
+#ENTRYPOINT ["mysql-user.sh"]
 
 CMD [ "mysqld" ]
