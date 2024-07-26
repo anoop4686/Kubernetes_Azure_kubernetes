@@ -25,4 +25,4 @@ VOLUME /etc/mysql
 
 CMD [ "mysqld" ]
 
-ENTRYPOINT ["sh","mysql-user.sh"]
+ENTRYPOINT ["sh", "-c", "mysql-user.sh"]
