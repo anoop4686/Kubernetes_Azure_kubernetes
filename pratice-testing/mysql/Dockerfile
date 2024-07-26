@@ -15,12 +15,15 @@ RUN apt update -y && \
 
 ## copy conf file 
 COPY ./Dockerfile /root/
+COPY mysql-user.sh /usr/local/bin/
+
+WORKDIR /usr/local/bin/
 
 #create volume to prevent ddisaster. If something went wrong then it wil use.
 VOLUME /var/lib/mysql
 VOLUME /etc/mysql
 
-COPY mysql-user.sh /usr/local/bin/
+
 ENTRYPOINT ["sh","mysql-user.sh"]
 
 CMD [ "mysqld" ]
