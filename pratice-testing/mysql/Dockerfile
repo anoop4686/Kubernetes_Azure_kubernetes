@@ -24,7 +24,5 @@ VOLUME /var/lib/mysql
 VOLUME /etc/mysql
 
 #CMD [ "mysqld" ]
-ADD ./mysql-user.sh
-ENTRYPOINT ["/bin/bash", "mysql-user.sh"]
 
-#ENTRYPOINT ["sh", "mysql-user.sh"]
+ENTRYPOINT ["/bin/bash", "mysql-user.sh"]
