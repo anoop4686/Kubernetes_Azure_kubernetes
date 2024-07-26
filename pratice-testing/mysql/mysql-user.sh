@@ -12,3 +12,4 @@
 # INSERT into employee VALUES (1,'Anoop','Maurya','Mumbai','Mumbai');
 # EOF
 useradd anoop
+mkdir file1
