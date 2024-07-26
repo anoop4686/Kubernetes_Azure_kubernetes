@@ -21,8 +21,8 @@ COPY mysql-user.sh /usr/local/bin/
 VOLUME /var/lib/mysql
 VOLUME /etc/mysql
 
-RUN chmod 777 /usr/local/bin/mysql-user.sh
-RUN /usr/local/bin/mysql-user.sh
+# RUN chmod 777 /usr/local/bin/mysql-user.sh
+# RUN /usr/local/bin/mysql-user.sh
 
-CMD [ "mysqld" ]
+# CMD [ "mysqld" ]
 #ENTRYPOINT ["mysqld", "mysql-user.sh"]
