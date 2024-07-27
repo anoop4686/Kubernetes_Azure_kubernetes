@@ -11,7 +11,7 @@ LABEL email="Anoopmauray144@gmail.com"
 # iputils : used for ping command
 # net-tools, curl,  network-manager : networking command
 RUN apt-get update -y && apt-get upgrade -y
-RUN apt-get install net-tools vim curl iputils network-manager-y
+RUN apt-get install net-tools vim curl iputils network-manager -y
 RUN apt-get install apache2 -y && \
     apt-get install bind9-utils -y | \
     apt-get update -y | \
