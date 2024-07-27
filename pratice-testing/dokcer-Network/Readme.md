@@ -6,7 +6,11 @@ docker network create custom-network --subnet 192.168.10.0/24 --gateway 192.168.
 ```
 docker build -t anoop4686/apache-custom-network:v1 .
 ```
+### docker build images with no-cache ###
 
+```
+docker build -t anoop4686/apache-custom-network:v1 --no-cache .
+```
 ### docker run images ###
 ```
 docker run --name webserver-apache-server --network DevOps-network -d -it -P ImageID

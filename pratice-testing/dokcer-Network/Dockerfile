@@ -11,13 +11,12 @@ LABEL email="Anoopmauray144@gmail.com"
 # iputils : used for ping command
 # net-tools, curl,  network-manager : networking command
 RUN apt-get update -y && apt-get upgrade -y
-RUN apt-get install net-tools vim curl network-manager -y
+RUN apt-get install net-tools vim curl network-manager iputils* -y
 RUN apt-get install apache2 -y && \
     apt-get install bind9-utils -y | \
     apt-get update -y | \
     apt-get install apache2-utils -y | \
     apt install tcl -y
-RUN apt-get install iputils -y
 
 RUN mkdir -p /root/backup-docker/hospital/
 
