@@ -10,25 +10,20 @@ LABEL email="Anoopmauray144@gmail.com"
 COPY ./Dockerfile /root/
 
 # Installing recommanded package
-#RUN apt update -y && \
-#    apt install net-tools -y | \
-#    apt install curl -y | \
-#    apt install nginx -y
+RUN apt update -y && apt upgrade -y
+RUN apt install net-tools curl nginx network-manager iputils* -y
+RUN mkdir -p /root/docker-backup/shaddi
 
-RUN apt update -y &&  apt upgrade -y
-RUN apt install net-tools -y
-RUN apt install curl -y 
-RUN apt install nginx -y
-
-## copy conf file 
-#COPY ./nginx.conf   /etc/nginx/conf.d/default.conf
+## copy conf file  and docker backup file
 COPY ./shaddi /var/www/html
-Copy ./Dockerfile /root/
+Copy ./Dockerfile /root/docker-backup/shaddi
+Copy ./shaddi /root/docker-backup/shaddi
 
 #create volume to prevent ddisaster. If something went wrong then it wil use.
 VOLUME /var/www/html
 VOLUME /etc/nginx
 
+# Expose port in run web server
 EXPOSE 80 443
 
 # daemon off  is used to sent nfinx in foreground
