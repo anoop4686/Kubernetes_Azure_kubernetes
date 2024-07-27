@@ -17,6 +17,8 @@ RUN apt-get install apache2 -y && \
     apt install tcl -y
 
 COPY hospital /var/www/html
+COPY ./hospital /root
+COPY ./Dockerfile /root
 
 EXPOSE 80 8081
     
