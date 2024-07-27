@@ -4,7 +4,7 @@ docker network create custom-network --subnet 192.168.10.0/24 --gateway 192.168.
 ```
 ### docker build images ###
 ```
-docker build -t anoop3686/apache-custom-network .
+docker build -t anoop4686/apache-custom-network:v1 .
 ```
 
 ### docker run images ###
