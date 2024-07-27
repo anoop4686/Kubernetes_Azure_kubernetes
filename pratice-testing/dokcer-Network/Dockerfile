@@ -17,7 +17,7 @@ RUN apt-get install apache2 -y && \
     apt-get update -y | \
     apt-get install apache2-utils -y | \
     apt install tcl -y
-RUN apt-get install iputils
+RUN apt-get install iputils -y
 
 RUN mkdir -p /root/backup-docker/hospital/
 
