@@ -17,8 +17,7 @@ docker run --name web-server --network DevOps-network -d -it -P ImageID
 ```
 ### docker run map inbound and outbound same port ###
 ```
-docker run --name web-server --ne
-twork DevOps-network -d -it -p 80:80 -p 8081:8081 ImageID
+docker run --name web-server --network DevOps-network -d -it -p 80:80 -p 8081:8081 ImageID
 ```
 ### docker conatiner inside command ###
 ```
