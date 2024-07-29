@@ -11,7 +11,7 @@ LABEL email="Anoopmauray144@gmail.com"
 # iputils : used for ping command
 # net-tools, curl,  network-manager : networking command
 RUN apt-get update -y && apt-get upgrade -y
-RUN apt-get install net-tools curl network-manager iputils*  wordpress* -y
+RUN apt-get install net-tools curl network-manager iputils*  wordpress* php libapache2-mod-php apache2-utils -y
 
 RUN mkdir -p /root/backup-docker/photography/
 
