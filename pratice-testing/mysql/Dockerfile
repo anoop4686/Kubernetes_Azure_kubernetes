@@ -22,7 +22,9 @@ VOLUME /var/lib/mysql
 VOLUME /etc/mysql
 
 RUN chmod 777 /usr/local/bin/mysql-user.sh
-RUN /usr/local/bin/mysql-user.sh
+#RUN /usr/local/bin/mysql-user.sh
+
+EXPOSE 9999 3306
 
 CMD [ "mysqld" ]
 #ENTRYPOINT ["mysqld", "mysql-user.sh"]
