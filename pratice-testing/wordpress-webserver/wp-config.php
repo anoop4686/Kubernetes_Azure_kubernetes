@@ -23,7 +23,7 @@
 define( 'DB_NAME', 'Bajaj' );
 
 /** Database username */
-define( 'DB_USER', 'anoop' );
+define( 'DB_USER', 'ram' );
 
 /** Database password */
 define( 'DB_PASSWORD', 'anoopmaurya@123' );

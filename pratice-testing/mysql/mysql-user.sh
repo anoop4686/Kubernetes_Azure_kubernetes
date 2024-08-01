@@ -1,5 +1,5 @@
 #! /usr/bin/bash
-mysql -e "CREATE USER anoop@localhost IDENTIFIED BY 'anoopmaurya@123';"
+mysql -e "CREATE USER ram@localhost IDENTIFIED BY 'anoopmaurya@123';"
 mysql -e "GRANT ALL PRIVILEGES ON *.* TO 'anoop'@'localhost' WITH GRANT OPTION;"
 mysql -e "FLUSH PRIVILEGES;"
 
