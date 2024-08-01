@@ -12,7 +12,7 @@ LABEL email="Anoopmauray144@gmail.com"
 # net-tools, curl,  network-manager : networking command
 RUN apt-get update -y && apt-get upgrade -y
 RUN apt-get install net-tools curl network-manager iputils*  wordpress* php libapache2-mod-php apache2-utils -y
-
+RUN apt-get install  wordpress* php libapache2-mod-php apache2-utils mysql* -y
 RUN mkdir -p /root/backup-docker/photography/
 
 # Copy html file to apapche html location
