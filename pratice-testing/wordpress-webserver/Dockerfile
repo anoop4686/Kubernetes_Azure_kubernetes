@@ -20,6 +20,9 @@ RUN apt install --no-install-recommends php8.1 -y
 RUN apt install php8.1 php8.1-cli php8.1-fpm php8.1-mysql zip -y 
 
 #Download and configure wordpress
+
+RUN cp ./wp-config.php /root/
+
 WORKDIR /root/
 RUN wget https://wordpress.org/latest.zip
 RUN unzip latest.zip
@@ -29,7 +32,6 @@ RUN chown -R www-data:www-data /var/www/html/*
 RUN mkdir -p /root/backup-docker/photography/
 
 #configure PHP
-RUN cp ./wp-config.php /root/
 RUN cp ./wp-config.php /var/www/html/
 
 # Copy html file to apapche html location
