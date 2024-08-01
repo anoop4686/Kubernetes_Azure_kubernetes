@@ -1,4 +1,4 @@
-FROM ubuntu
+FROM ubuntu:22.04
 
 # Name or email of person or group 
 MAINTAINER "Anoop Maurya"
