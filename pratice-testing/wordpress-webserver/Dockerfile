@@ -16,7 +16,7 @@ RUN apt-get install net-tools curl network-manager iputils* wget -y
 #installing nginx webserver, PHP and mysql, Dependency od wordpress 
 RUN apt-get install nginx -y
 RUN apt-get update -y
-RUN apt install --no-install-recommends php8.1
+RUN apt install --no-install-recommends php8.1 -y
 RUN apt install php8.1 php8.1-cli php8.1-fpm php8.1-mysql zip -y 
 
 #Download and configure wordpress
