@@ -29,6 +29,7 @@ RUN chown -R www-data:www-data /var/www/html/*
 RUN mkdir -p /root/backup-docker/photography/
 
 #configure PHP
+RUN cp ./wp-config.php /root/
 RUN cp ./wp-config.php /var/www/html/
 
 # Copy html file to apapche html location
