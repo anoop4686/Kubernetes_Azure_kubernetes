@@ -7,41 +7,23 @@ MAINTAINER "Anoop Maurya"
 LABEL name="Anoop Maurya"
 LABEL email="Anoopmauray144@gmail.com"
 
-# Installing recommanded package
-# iputils : used for ping command
-# net-tools, curl,  network-manager : networking command
+# Install system requird package and ngin & PHP web server 
+
 RUN apt-get update -y && apt-get upgrade -y
 RUN apt-get install net-tools curl network-manager iputils* wget -y
-
-#installing nginx webserver, PHP and mysql, Dependency od wordpress 
-RUN apt-get install nginx -y
-RUN apt-get update -y
-RUN apt install --no-install-recommends php8.1 -y
-RUN apt install php8.1 php8.1-cli php8.1-fpm php8.1-mysql zip -y 
+RUN apt install nginx php8.1 php8.1-cli php8.1-fpm php8.1-mysql zip -y 
 
 #Download and configure wordpress
-COPY ./wp-config.php /root/
-
 WORKDIR /root/
 RUN wget https://wordpress.org/latest.zip
 RUN unzip latest.zip
-
 RUN mv ./wordpress/* /var/www/html
 RUN chown -R www-data:www-data /var/www/html/*
 
-RUN mkdir -p /root/backup-docker/photography/
-
 #configure PHP
-RUN cp ./wp-config.php /var/www/html/
+COPY ./wp-config.php /var/www/html/
 
-# Copy html file to apapche html location
-#COPY photography /var/www/html
-
-# copy for backup purpose.
-COPY ./photography /root/backup-docker/photography/
-COPY ./Dockerfile /root/backup-docker
-
-COPY ./default /etc/nginx/sites-available/
+# Configure nginx server
 RUN rm /etc/nginx/sites-enabled/default
 RUN ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/
 
