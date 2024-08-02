@@ -10,7 +10,7 @@ LABEL email="Anoopmauray144@gmail.com"
 # Install system requird package and ngin & PHP web server 
 
 RUN apt-get update -y && apt-get upgrade -y
-RUN apt-get install net-tools curl network-manager iputils* wget -y
+RUN apt-get install net-tools curl network-manager iputils* wget apt-utils vim nano -y
 RUN apt install nginx php8.1 php8.1-cli php8.1-fpm php8.1-mysql zip -y 
 
 #Download and configure wordpress
