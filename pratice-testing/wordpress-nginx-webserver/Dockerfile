@@ -18,7 +18,7 @@ WORKDIR /root/
 RUN wget https://wordpress.org/latest.zip
 RUN unzip latest.zip
 RUN mv ./wordpress/* /var/www/html
-RUN chown -R www-data:www-data /var/www/html/*
+
 
 #configure PHP
 RUN rm -rf /var/www/html/wp-config-sample.php
@@ -35,6 +35,8 @@ RUN mkdir -p /root/docker-backup/photography
 COPY ./photography /root/docker-backup/photography
 COPY ./default /root/docker-backup/
 COPY ./wp-config.php /root/docker-backup/
+
+RUN chown -R www-data:www-data /var/www/html
 
 #Creating Volume
 VOLUME /var/www/
