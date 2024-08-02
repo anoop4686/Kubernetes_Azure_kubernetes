@@ -24,6 +24,7 @@ RUN chown -R www-data:www-data /var/www/html/*
 COPY ./wp-config.php /var/www/html/
 
 # Configure nginx server
+COPY ./default /etc/nginx/sites-available/
 RUN rm /etc/nginx/sites-enabled/default
 RUN ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/
 
