@@ -27,6 +27,16 @@ COPY ./wp-config.php /var/www/html/
 RUN rm /etc/nginx/sites-enabled/default
 RUN ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/
 
+# Backup files
+RUN mkdir -P /root/docker-backup/photography
+COPY ./photography /root/docker-backup/photography
+COPY ./default /root/docker-backup/
+COPY ./wp-config.php /root/docker-backup/
+
+#Creating Volume
+VOLUME /var/www/
+VOLUME /etc/nginx/
+
 # Expose is used for open port 80 and 8081
 EXPOSE 80 8081
 
