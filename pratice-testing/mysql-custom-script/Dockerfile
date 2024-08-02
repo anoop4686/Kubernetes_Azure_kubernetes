@@ -7,16 +7,13 @@ MAINTAINER "Anoop Maurya"
 LABEL name="Anoop Maurya"
 LABEL email="Anoopmauray144@gmail.com"
 
-COPY ./Dockerfile /root/
-COPY ./init-scripts/ /docker-entrypoint-initdb.d/
-
 # Installing recommanded package
 RUN apt update -y
 RUN apt install mysql-server -y
 
 ## copy conf file 
 COPY ./Dockerfile /root/
-COPY mysql-user.sh /usr/local/bin/
+COPY ./init-scripts/ /docker-entrypoint-initdb.d/
 
 WORKDIR  /usr/local/bin/
 
@@ -24,10 +21,6 @@ WORKDIR  /usr/local/bin/
 VOLUME /var/lib/mysql
 VOLUME /etc/mysql
 
-RUN chmod 777 /usr/local/bin/mysql-user.sh
-#RUN /usr/local/bin/mysql-user.sh
-
 EXPOSE 9999 3306
 
 CMD [ "mysqld" ]
-#ENTRYPOINT ["mysqld", "mysql-user.sh"]
