@@ -1,3 +1,7 @@
+CREATE DATABASE samsung;
+
+use samsung;
+
 CREATE TABLE card (
   id int(20) NOT NULL,
   First-Name varchar(255) NOT NULL,
