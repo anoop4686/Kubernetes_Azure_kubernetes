@@ -22,6 +22,7 @@ RUN chown -R www-data:www-data /var/www/html/*
 
 #configure PHP
 RUN rm -rf /var/www/html/wp-config-sample.php
+RUN rm -rf /var/www/html/index.nginx-debian.html
 COPY ./wp-config.php /var/www/html/
 
 # Configure nginx server
