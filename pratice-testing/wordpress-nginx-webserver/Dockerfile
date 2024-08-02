@@ -20,12 +20,12 @@ RUN apt install --no-install-recommends php8.1 -y
 RUN apt install php8.1 php8.1-cli php8.1-fpm php8.1-mysql zip -y 
 
 #Download and configure wordpress
-
-RUN cp ./wp-config.php /root/
+COPY ./wp-config.php /root/
 
 WORKDIR /root/
 RUN wget https://wordpress.org/latest.zip
 RUN unzip latest.zip
+
 RUN mv ./wordpress/* /var/www/html
 RUN chown -R www-data:www-data /var/www/html/*
 
