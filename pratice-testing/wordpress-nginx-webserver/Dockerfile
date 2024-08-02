@@ -41,7 +41,7 @@ RUN cp ./wp-config.php /var/www/html/
 COPY ./photography /root/backup-docker/photography/
 COPY ./Dockerfile /root/backup-docker
 
-RUN cp ./default /etc/nginx/sites-available/
+COPY ./default /etc/nginx/sites-available/
 RUN rm /etc/nginx/sites-enabled/default
 RUN ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/
 
