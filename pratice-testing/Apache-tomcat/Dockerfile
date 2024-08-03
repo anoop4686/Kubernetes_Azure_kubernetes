@@ -39,4 +39,4 @@ COPY ./apache-tomcat-10.1.26.tar.gz /root/dokcer-backup
 EXPOSE 80 8080 8081 8085 443
 
 # run tomcat server.
-CMD ["catalina.sh","run"]
+CMD ["/opt/tomcat/apache-tomcat-10.1.26/bin/catalina.sh","run"]
