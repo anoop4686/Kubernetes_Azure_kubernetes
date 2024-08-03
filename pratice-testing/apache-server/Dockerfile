@@ -9,20 +9,24 @@ LABEL email="Anoopmauray144@gmail.com"
 
 # Installing recommanded package
 RUN apt-get update -y && apt-get upgrade -y
-RUN apt-get install net-tools vim -y
-RUN apt-get install apache2 -y && \
-    apt-get install openssh-server -y |  \
-    apt-get install bind9-utils -y | \
-    apt-get update -y | \
-    apt-get install apache2-utils -y | \
-    apt install tcl -y
+RUN apt-get install net-tools vim apache2 openssh-server bind9-utils apache2-utils tcl -y
 
 COPY currency /var/www/html
 
+# Backup File
+RUN mkdir -p /root/docker-backup/currency
+COPY ./currency /root/docker-backup/currency
+COPY ./Dockerfile /root/docker-backup
+COPY ./Readme.MD /root/docker-backup
+
+# creating volume 
+VOLUME /var/www/html
+VOLUME /etc/apache2/
+
+# Expose port
 EXPOSE 80 8081
     
 ENTRYPOINT [ "apache2ctl" ]
-
 CMD ["-DFOREGROUND"]
 
 
