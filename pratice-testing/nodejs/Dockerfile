@@ -21,7 +21,7 @@ COPY app1.js /myapp
 RUN mkdir -p /root/docker-backup/
 COPY ./app1.js /root/docker-backup/
 Copy ./Dockerfile /root/docker-backup/
-Copy ./dokcer-compose.yml /root/docker-backup/
+Copy ./docker-compose.yaml /root/docker-backup/
 
 # Expose is used for open port 80 and 8081
 EXPOSE 80 8080
