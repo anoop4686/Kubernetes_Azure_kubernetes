@@ -16,23 +16,27 @@ RUN apt update -y && \
     apt install openjdk-17-jre -y | \
     apt install openjdk-17-jdk -y
 
-#RUN apt update -y 
-#RUN apt-cache search openjdk | grep openjdk-17
-#RUN apt update -y 
-#RUN apt install openjdk-17-jre -y
-#RUN apt install openjdk-17-jdk -y
-
-RUN mkdir /opt/tomcat
+# create director
+RUN mkdir -p /opt/tomcat
 
 ## ADD command is used to copy and Extract file
 ADD ./ apache-tomcat-10.1.26.tar.gz /opt/tomcat/
 
+# setting Java environment to user home.
 RUN echo "export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64/" > /root/.bash_profile
 
 #RUN source /root/.bash_profile
 
+#create working directory
 WORKDIR /opt/tomcat/apache-tomcat-10.1.26/bin/
 
+#backup file
+RUN mkdir -p /root/dokcer-backup
+COPY ./Dockerfile /root/dokcer-backup
+COPY ./apache-tomcat-10.1.26.tar.gz /root/dokcer-backup
+
+#exposing port
 EXPOSE 80 8080 8081 8085 443
 
-CMD ["/opt/tomcat/apache-tomcat-10.1.26/bin/catalina.sh","run"]
+# run tomcat server.
+CMD ["catalina.sh","run"]
