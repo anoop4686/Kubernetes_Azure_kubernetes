@@ -1,11 +1,11 @@
 #! /bin/bash
 
 # Install docker and firewall
-sudo apt install docker*  ufw 
-sudo systemctl enable docker && sudo systemctl start dokcer
+sudo apt install docker.io*  ufw curl -y 
+sudo systemctl enable docker && sudo systemctl start docker
 
 # enable Firewall 
-sudo systemctl enable ufw
+sudo systemctl enable ufw && sudo systemctl enable ufw 
 sudo ufw enable
 
 # Add default port and 2376 Docker port 
@@ -28,5 +28,6 @@ curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.30/deb/Release.key | sudo gpg --
 echo 'deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.30/deb/ /' | sudo tee /etc/apt/sources.list.d/kubernetes.list
 sudo apt update -y
 sudo apt install kubeadm kubelet kubectl -y
+sudo apt-mark hold kubeadm kubelet kubectl
 
 
