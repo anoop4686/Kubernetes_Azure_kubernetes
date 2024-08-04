@@ -1,5 +1,4 @@
 CREATE DATABASE samsung;
-
 use samsung;
 
 CREATE TABLE card (

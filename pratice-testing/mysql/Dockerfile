@@ -7,26 +7,20 @@ MAINTAINER "Anoop Maurya"
 LABEL name="Anoop Maurya"
 LABEL email="Anoopmauray144@gmail.com"
 
-COPY ./Dockerfile /root/
+# Backup Docker file
+RUN mkdir -p /root/docker-backup
+COPY ./Dockerfile /root/docker-backup/
+COPY ./Readme.md /root/docker-backup
 
 # Installing recommanded package
 RUN apt update -y
-RUN apt install mysql-server -y
+RUN apt install mysql mysql-server -y
 
-## copy conf file 
-COPY ./Dockerfile /root/
-COPY mysql-user.sh /usr/local/bin/
-
+# setting up working directory
 WORKDIR  /usr/local/bin/
 
 #create volume to prevent ddisaster. If something went wrong then it wil use.
 VOLUME /var/lib/mysql
 VOLUME /etc/mysql
 
-RUN chmod 777 /usr/local/bin/mysql-user.sh
-#RUN /usr/local/bin/mysql-user.sh
-
-EXPOSE 9999 3306
-
 CMD [ "mysqld" ]
-#ENTRYPOINT ["mysqld", "mysql-user.sh"]

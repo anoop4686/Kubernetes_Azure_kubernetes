@@ -21,6 +21,4 @@ WORKDIR  /usr/local/bin/
 VOLUME /var/lib/mysql
 VOLUME /etc/mysql
 
-EXPOSE 9999 3306
-
 CMD [ "mysqld" ]
