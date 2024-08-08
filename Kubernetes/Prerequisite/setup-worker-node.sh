@@ -31,3 +31,4 @@ sudo apt install kubeadm kubelet kubectl -y
 sudo apt-mark hold kubeadm kubelet kubectl
 
 #Add these for connectionil,o9
+#added
