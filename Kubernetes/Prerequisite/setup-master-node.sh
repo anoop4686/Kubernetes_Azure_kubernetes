@@ -13,4 +13,11 @@ sudo apt install kubeadm kubelet kubectl -y
 sudo apt-mark hold kubeadm kubelet kubectl
 kubeadm version
 
-kubeadm init
+# Generating configuration credential
+sudo kubeadm init > ./master-node-credential.txt
+
+# If it is not wokring then first rest and re-enter command
+# sudo kubeadm reset
+
+# install wavenet connection
+        #kubectl apply -f https://github.com/weaveworks/weave/releases/download/v2.8.1/weave-daemonset-k8s.yaml
