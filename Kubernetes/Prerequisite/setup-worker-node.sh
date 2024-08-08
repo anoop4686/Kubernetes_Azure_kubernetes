@@ -1,6 +1,7 @@
 #! /bin/bash
 
 # Install docker and firewall
+sudo apt update -y
 sudo apt install docker.io* curl -y
 sudo systemctl enable docker && sudo systemctl start docker
 
