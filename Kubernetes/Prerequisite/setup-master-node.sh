@@ -9,12 +9,14 @@ sysctl --system
 curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.28/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
 echo 'deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.28/deb/ /' | sudo tee /etc/apt/sources.list.d/kubernetes.list
 sudo apt update -y
-sudo apt install kubeadm kubelet kubectl -y
+sudo apt install kubeadm kubelet kubectl curl -y
 sudo apt-mark hold kubeadm kubelet kubectl
-kubeadm version
+sudo kubeadm version
+sudo systemctl enable kubelet &&  sudo systemctl restart kubelet
+sudo systemctl status kubelet
 
 # Generating configuration credential
-sudo kubeadm init > ./master-node-credential.txt
+sudo kubeadm init
 
 # If it is not wokring then first rest and re-enter command
 # sudo kubeadm reset
