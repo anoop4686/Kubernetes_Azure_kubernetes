@@ -1,11 +1,9 @@
 #! /bin/bash
 
 # Install docker and firewall
-sudo apt install docker.io*  ufw curl -y
+sudo apt install docker.io* curl -y
 sudo systemctl enable docker && sudo systemctl start docker
 
-# enable Firewall
-sudo systemctl enable ufw && sudo systemctl enable ufw
 #sudo ufw enable
 
 # Add default port and 2376 Docker port
