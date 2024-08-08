@@ -30,5 +30,9 @@ sudo apt update -y
 sudo apt install kubeadm kubelet kubectl -y
 sudo apt-mark hold kubeadm kubelet kubectl
 
+sudo swapoff -a
+sudo systemctl enable kubelet &&  sudo systemctl restart kubelet
+sudo systemctl status kubelet
+
 #Add these for connectionil,o9
 #added

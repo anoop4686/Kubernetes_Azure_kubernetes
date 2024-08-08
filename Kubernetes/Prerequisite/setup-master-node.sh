@@ -12,6 +12,7 @@ sudo apt update -y
 sudo apt install kubeadm kubelet kubectl curl -y
 sudo apt-mark hold kubeadm kubelet kubectl
 sudo kubeadm version
+sudo swapoff -a
 sudo systemctl enable kubelet &&  sudo systemctl restart kubelet
 sudo systemctl status kubelet
 
