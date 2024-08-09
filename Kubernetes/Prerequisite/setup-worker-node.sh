@@ -17,14 +17,11 @@ sudo systemctl enable docker && sudo systemctl start docker
 #sudo ufw enable
 
 # Add default port and 2376 Docker port
-sudo ufw allow 22,80,443,2376/tcp
+# sudo ufw allow 22,80,443,2376/tcp
 # Add kubernetes default Master port
-sudo ufw allow 6443,2379,2380,10250,10259,10257/tcp
+# sudo ufw allow 6443,2379,2380,10250,10259,10257/tcp
 # Add kubernetes default Worker port
-sudo ufw allow 10250,10256,30000:32767/tcp
-
-# Setting up Host name
-hostnamectl set-hostname k8-worker-node
+# sudo ufw allow 10250,10256,30000:32767/tcp
 
 # Add kernal rules
 echo "net.bridge.bridge-nf-call-ip6tables = 1" > /etc/sysctl.d/k8s.conf
@@ -40,6 +37,14 @@ sudo apt-mark hold kubeadm kubelet kubectl
 
 sudo systemctl enable kubelet &&  sudo systemctl restart kubelet
 sudo systemctl status kubelet
+
+sudo swapoff -a
+sudo sed -i '/ swap / s/^/#/' /etc/fstab
+clear 
+
+echo "restart sysytem in 10 second"
+sleep 10
+sudo reboot
 
 #Add these for connectionil,o9
 #added
