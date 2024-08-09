@@ -1,8 +1,17 @@
 #! /bin/bash
 
+#setting hosts enrty
+192.168.2.10    DevOps-system.com >> /etc/hosts
+192.168.2.100   DevOps-system.com >> /etc/hosts
+192.168.2.20    worker-system.com >> /etc/hosts
+192.168.10.200  worker-system.com >> /etc/hosts
+
+#set host name
+hostnamectl set-hostname worker-system.com
+
 # Install docker and firewall
 sudo apt update -y
-sudo apt install docker.io* curl -y
+sudo apt install docker.io curl -y
 sudo systemctl enable docker && sudo systemctl start docker
 
 #sudo ufw enable
@@ -29,7 +38,6 @@ sudo apt update -y
 sudo apt install kubeadm kubelet kubectl -y
 sudo apt-mark hold kubeadm kubelet kubectl
 
-sudo swapoff -a
 sudo systemctl enable kubelet &&  sudo systemctl restart kubelet
 sudo systemctl status kubelet
 
@@ -37,3 +45,4 @@ sudo systemctl status kubelet
 #added
 #kubeadm join 192.168.0.68:6443 --token ekhxp9.38r8nrp9dlzzocqk \
 #        --discovery-token-ca-cert-hash sha256:72820c02a76a4de4e8d212fa503b9b87e96ccef447fd035c39f2579350238ce7
+ 
