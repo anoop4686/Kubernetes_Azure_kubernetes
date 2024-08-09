@@ -35,3 +35,5 @@ sudo systemctl status kubelet
 
 #Add these for connectionil,o9
 #added
+#kubeadm join 192.168.0.68:6443 --token ekhxp9.38r8nrp9dlzzocqk \
+#        --discovery-token-ca-cert-hash sha256:72820c02a76a4de4e8d212fa503b9b87e96ccef447fd035c39f2579350238ce7

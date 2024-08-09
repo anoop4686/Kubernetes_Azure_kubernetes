@@ -14,7 +14,6 @@ sudo apt-mark hold kubeadm kubelet kubectl
 sudo kubeadm version
 sudo swapoff -a
 sudo systemctl enable kubelet &&  sudo systemctl restart kubelet
-sudo systemctl status kubelet
 
 # Generating configuration credential
 sudo kubeadm init
@@ -23,4 +22,4 @@ sudo kubeadm init
 # sudo kubeadm reset
 
 # install wavenet connection
-        #kubectl apply -f https://github.com/weaveworks/weave/releases/download/v2.8.1/weave-daemonset-k8s.yaml
+        # sudo kubectl apply -f https://github.com/weaveworks/weave/releases/download/v2.8.1/weave-daemonset-k8s.yaml
