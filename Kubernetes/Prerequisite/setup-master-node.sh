@@ -32,7 +32,7 @@ sudo systemctl enable kubelet &&  sudo systemctl restart kubelet
 # fix issue kubeadm
 sudo swapoff -a
 sudo sed -i '/ swap / s/^/#/' /etc/fstab
-clear
+sudo reboot
 kubeadm init --ignore-preflight-errors all
 
 # Generating configuration credential
