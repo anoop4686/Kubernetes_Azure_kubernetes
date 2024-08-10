@@ -45,7 +45,7 @@ sudo systemctl enable kubelet &&  sudo systemctl restart kubelet
 
 
 # fix issue kubeadm
-kubeadm init --pod-network-cidr=192.168.10.0/24 
+kubeadm init --pod-network-cidr=192.168.10.0/24
 
 # Generating configuration credential
 #mkdir -p $HOME/.kube
