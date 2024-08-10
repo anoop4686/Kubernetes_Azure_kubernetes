@@ -10,6 +10,7 @@ hostnamectl set-hostname  DevOps-system
 # Add kernal rules
 echo "net.bridge.bridge-nf-call-ip6tables = 1" > /etc/sysctl.d/k8s.conf
 echo "net.bridge.bridge-nf-call-iptables = 1" >> /etc/sysctl.d/k8s.conf
+echo "net.ipv4.ip_forward  = 1" >> /etc/sysctl.d/k8s.conf
 sudo sysctl --system
 
 #install docker
@@ -27,9 +28,8 @@ sudo apt-mark hold kubeadm kubelet kubectl
 sudo kubeadm version
 sudo systemctl enable kubelet &&  sudo systemctl restart kubelet
 
+
 # fix issue kubeadm
-sudo swapoff -a
-sudo sed -i '/ swap / s/^/#/' /etc/fstab
 kubeadm init 
 
 # Generating configuration credential
@@ -45,7 +45,7 @@ kubeadm init
 # sudo kubeadm reset
 
 # install wavenet connection
-#sudo kubectl apply -f https://github.com/weaveworks/weave/releases/download/v2.8.1/weave-daemonset-k8s.yaml
+sudo kubectl apply -f https://github.com/weaveworks/weave/releases/download/v2.8.1/weave-daemonset-k8s.yaml
 
 
 
