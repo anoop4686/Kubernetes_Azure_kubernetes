@@ -1,5 +1,8 @@
 #! /bin/bash
 
+#setting DNS entry
+echo "nameserver 8.8.8.8" | sudo tee /etc/resolv.conf > /dev/null
+
 #setting hosts enrty
 echo "192.168.10.100  DevOps-system" >> /etc/hosts
 echo "192.168.10.200  worker-system" >> /etc/hosts
@@ -15,7 +18,8 @@ sudo sysctl --system
 
 #install docker
 sudo apt update -y && sudo apt upgrade -y
-sudo apt install docker.io curl -y
+sudo apt install docker* -y
+sudo apt install curl -y
 sudo systemctl enable docker && sudo systemctl restart docker
 
 sudo apt install ufw
@@ -54,7 +58,7 @@ kubeadm init --pod-network-cidr=192.168.10.0/24
 
 # Alternatively, if you are the root user, you can run:
 
-export KUBECONFIG=/etc/kubernetes/admin.conf
+#export KUBECONFIG=/etc/kubernetes/admin.conf
 
 systemctl daemon-reload
 
@@ -64,8 +68,4 @@ systemctl daemon-reload
 # install wavenet connection
 #kubectl apply -f https://github.com/weaveworks/weave/releases/download/v2.8.1/weave-daemonset-k8s.yaml
 
-kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
-
-
-
-
+#kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
