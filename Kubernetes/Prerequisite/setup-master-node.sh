@@ -1,19 +1,19 @@
 #! /bin/bash
 
 #setting hosts enrty
-echo "192.168.10.100  DevOps-system.com" >> /etc/hosts
-echo "192.168.10.200  worker-system.com" >> /etc/hosts
+echo "192.168.10.100  DevOps-system" >> /etc/hosts
+echo "192.168.10.200  worker-system" >> /etc/host
 
 #set host name
-hostnamectl set-hostname DevOps-system.com
+hostnamectl set-hostname  DevOps-system
 
 # Add kernal rules
 echo "net.bridge.bridge-nf-call-ip6tables = 1" > /etc/sysctl.d/k8s.conf
 echo "net.bridge.bridge-nf-call-iptables = 1" >> /etc/sysctl.d/k8s.conf
-sysctl --system
+sudo sysctl --system
 
 #install docker
-sudo apt update -y & sudo apt upgrade -y
+sudo apt update -y && sudo apt upgrade -y
 sudo apt install docker.io curl -y
 sudo systemctl enable docker && sudo systemctl restart docker
 
