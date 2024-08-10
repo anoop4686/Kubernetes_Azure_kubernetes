@@ -1,5 +1,8 @@
 #! /bin/bash
 
+#setting DNS entry
+echo "nameserver 8.8.8.8" | sudo tee /etc/resolv.conf > /dev/null
+
 echo "192.168.10.100  DevOps-system" >> /etc/hosts
 echo "192.168.10.200  worker-system" >> /etc/hosts
 
@@ -15,7 +18,8 @@ sudo sysctl --system
 
 #install docker
 sudo apt update -y & sudo apt upgrade -y
-sudo apt install docker.io curl -y
+sudo apt install docker* -y
+sudo apt install curl -y
 sudo systemctl enable docker && sudo systemctl restart docker
 
 sudo apt install ufw
