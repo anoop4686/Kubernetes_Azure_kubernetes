@@ -1,7 +1,7 @@
 #! /bin/bash
 
 #setting DNS entry
-echo "nameserver 8.8.8.8" | sudo tee /etc/resolv.conf > /dev/null
+echo "nameserver 8.8.8.8"  >> /etc/resolv.conf
 
 #setting hosts enrty
 echo "192.168.10.100  DevOps-system" >> /etc/hosts
@@ -70,3 +70,7 @@ systemctl daemon-reload
 
 #kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
 echo "Complete"
+
+#find joint command
+#sudo kubeadm token create --print-join-command
+

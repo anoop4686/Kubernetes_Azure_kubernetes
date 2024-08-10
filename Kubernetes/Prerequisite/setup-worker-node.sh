@@ -1,7 +1,7 @@
 #! /bin/bash
 
 #setting DNS entry
-echo "nameserver 8.8.8.8" | sudo tee /etc/resolv.conf > /dev/null
+echo "nameserver 8.8.8.8"  >> /etc/resolv.conf
 
 echo "192.168.10.100  DevOps-system" >> /etc/hosts
 echo "192.168.10.200  worker-system" >> /etc/hosts
