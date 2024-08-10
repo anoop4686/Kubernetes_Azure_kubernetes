@@ -2,7 +2,7 @@
 
 #setting hosts enrty
 echo "192.168.10.100  DevOps-system" >> /etc/hosts
-echo "192.168.10.200  worker-system" >> /etc/host
+echo "192.168.10.200  worker-system" >> /etc/hosts
 
 #set host name
 hostnamectl set-hostname  DevOps-system
@@ -55,6 +55,8 @@ kubeadm init --pod-network-cidr=192.168.10.0/24
 # Alternatively, if you are the root user, you can run:
 
 export KUBECONFIG=/etc/kubernetes/admin.conf
+
+systemctl daemon-reload
 
 # If it is not wokring then first rest and re-enter command
 # sudo kubeadm reset

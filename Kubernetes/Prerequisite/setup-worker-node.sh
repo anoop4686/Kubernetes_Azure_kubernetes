@@ -1,7 +1,8 @@
 #! /bin/bash
 
 echo "192.168.10.100  DevOps-system" >> /etc/hosts
-echo "192.168.10.200  worker-system" >> /etc/host
+echo "192.168.10.200  worker-system" >> /etc/hosts
+
 
 #set host name
 hostnamectl set-hostname  worker-system
@@ -17,14 +18,19 @@ sudo apt update -y & sudo apt upgrade -y
 sudo apt install docker.io curl -y
 sudo systemctl enable docker && sudo systemctl restart docker
 
-#sudo ufw enable
+sudo apt install ufw
+sudo ufw default allow outgoing
+sudo ufw default allow incoming
+systemctl enable ufw
+systemctl restart ufw
+sudo ufw enable
 
 # Add default port and 2376 Docker port
-# sudo ufw allow 22,80,443,2376/tcp
+sudo ufw allow 22,80,443,2376/tcp
 # Add kubernetes default Master port
-# sudo ufw allow 6443,2379,2380,10250,10259,10257/tcp
+sudo ufw allow 6443,2379,2380,10250,10259,10257/tcp
 # Add kubernetes default Worker port
-# sudo ufw allow 10250,10256,30000:32767/tcp
+sudo ufw allow 10250,10256,30000:32767/tcp
 
 # Install Kuberneets
 curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.28/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
