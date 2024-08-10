@@ -30,7 +30,7 @@ sudo systemctl enable kubelet &&  sudo systemctl restart kubelet
 
 
 # fix issue kubeadm
-kubeadm init 
+kubeadm init --pod-network-cidr=192.168.10.0/24 
 
 # Generating configuration credential
 #mkdir -p $HOME/.kube
@@ -39,13 +39,15 @@ kubeadm init
 
 # Alternatively, if you are the root user, you can run:
 
-#  export KUBECONFIG=/etc/kubernetes/admin.conf
+export KUBECONFIG=/etc/kubernetes/admin.conf
 
 # If it is not wokring then first rest and re-enter command
 # sudo kubeadm reset
 
 # install wavenet connection
-sudo kubectl apply -f https://github.com/weaveworks/weave/releases/download/v2.8.1/weave-daemonset-k8s.yaml
+#kubectl apply -f https://github.com/weaveworks/weave/releases/download/v2.8.1/weave-daemonset-k8s.yaml
+
+kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
 
 
 

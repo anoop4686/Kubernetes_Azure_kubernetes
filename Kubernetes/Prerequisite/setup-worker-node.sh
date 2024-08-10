@@ -1,16 +1,16 @@
 #! /bin/bash
 
-#setting hosts enrty
-echo "192.168.10.100   DevOps-system.com" >> /etc/hosts
-echo "192.168.10.200  worker-system.com" >> /etc/host
+echo "192.168.10.100  DevOps-system" >> /etc/hosts
+echo "192.168.10.200  worker-system" >> /etc/host
 
 #set host name
-hostnamectl set-hostname worker-system.com
+hostnamectl set-hostname  worker-system
 
 # Add kernal rules
 echo "net.bridge.bridge-nf-call-ip6tables = 1" > /etc/sysctl.d/k8s.conf
 echo "net.bridge.bridge-nf-call-iptables = 1" >> /etc/sysctl.d/k8s.conf
-sysctl --system
+echo "net.ipv4.ip_forward  = 1" >> /etc/sysctl.d/k8s.conf
+sudo sysctl --system
 
 #install docker
 sudo apt update -y & sudo apt upgrade -y
@@ -34,10 +34,6 @@ sudo apt install kubeadm kubelet kubectl -y
 sudo apt-mark hold kubeadm kubelet kubectl
 sudo kubeadm version
 sudo systemctl enable kubelet &&  sudo systemctl restart kubelet
-
-
-sudo swapoff -a
-sudo sed -i '/ swap / s/^/#/' /etc/fstab
 
 echo "restart sysytem in 10 second"
 sleep 5
