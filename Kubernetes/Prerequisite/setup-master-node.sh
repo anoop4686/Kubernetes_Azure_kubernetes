@@ -1,10 +1,10 @@
 #! /bin/bash
 
 #setting hosts enrty
-192.168.2.10    DevOps-system.com >> /etc/hosts
-192.168.2.100   DevOps-system.com >> /etc/hosts
-192.168.2.20    worker-system.com >> /etc/hosts
-192.168.10.200  worker-system.com >> /etc/hosts
+echo "192.168.2.10    DevOps-system.com" >> /etc/hosts
+echo "192.168.2.100   DevOps-system.com" >> /etc/hosts
+echo "192.168.2.20    worker-system.com" >> /etc/hosts
+echo "192.168.10.200  worker-system.com" >> /etc/hosts
 
 #set host name
 hostnamectl set-hostname DevOps-system.com
