@@ -13,7 +13,7 @@ echo "net.bridge.bridge-nf-call-iptables = 1" >> /etc/sysctl.d/k8s.conf
 sysctl --system
 
 #install docker
-sudo apt update -y
+sudo apt update -y & sudo apt upgrade -y
 sudo apt install docker.io curl -y
 sudo systemctl enable docker && sudo systemctl restart docker
 
