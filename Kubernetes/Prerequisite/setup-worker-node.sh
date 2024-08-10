@@ -1,18 +1,21 @@
 #! /bin/bash
 
 #setting hosts enrty
-echo "192.168.2.10    DevOps-system.com" >> /etc/hosts
-echo "192.168.2.100   DevOps-system.com" >> /etc/hosts
-echo "192.168.2.20    worker-system.com" >> /etc/hosts
-echo "192.168.10.200  worker-system.com" >> /etc/hosts
+echo "192.168.10.100   DevOps-system.com" >> /etc/hosts
+echo "192.168.10.200  worker-system.com" >> /etc/host
 
 #set host name
 hostnamectl set-hostname worker-system.com
 
-# Install docker and firewall
+# Add kernal rules
+echo "net.bridge.bridge-nf-call-ip6tables = 1" > /etc/sysctl.d/k8s.conf
+echo "net.bridge.bridge-nf-call-iptables = 1" >> /etc/sysctl.d/k8s.conf
+sysctl --system
+
+#install docker
 sudo apt update -y
 sudo apt install docker.io curl -y
-sudo systemctl enable docker && sudo systemctl start docker
+sudo systemctl enable docker && sudo systemctl restart docker
 
 #sudo ufw enable
 
@@ -23,27 +26,21 @@ sudo systemctl enable docker && sudo systemctl start docker
 # Add kubernetes default Worker port
 # sudo ufw allow 10250,10256,30000:32767/tcp
 
-# Add kernal rules
-echo "net.bridge.bridge-nf-call-ip6tables = 1" > /etc/sysctl.d/k8s.conf
-echo "net.bridge.bridge-nf-call-ip6tables = 1" >> /etc/sysctl.d/k8s.conf
-sudo sysctl -a
-
 # Install Kuberneets
 curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.28/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
 echo 'deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.28/deb/ /' | sudo tee /etc/apt/sources.list.d/kubernetes.list
 sudo apt update -y
 sudo apt install kubeadm kubelet kubectl -y
 sudo apt-mark hold kubeadm kubelet kubectl
-
+sudo kubeadm version
 sudo systemctl enable kubelet &&  sudo systemctl restart kubelet
-sudo systemctl status kubelet
+
 
 sudo swapoff -a
 sudo sed -i '/ swap / s/^/#/' /etc/fstab
-clear 
 
 echo "restart sysytem in 10 second"
-sleep 10
+sleep 5
 sudo reboot
 
 #Add these for connectionil,o9
