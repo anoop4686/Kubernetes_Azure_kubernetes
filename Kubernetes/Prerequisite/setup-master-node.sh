@@ -40,8 +40,16 @@ mkdir -p $HOME/.kube
 sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
 
+# Alternatively, if you are the root user, you can run:
+export KUBECONFIG=/etc/kubernetes/admin.conf
+
 # If it is not wokring then first rest and re-enter command
 # sudo kubeadm reset
+
+echo "#################################################################################"
+echo "############### Wavenet conf " ##################################################"
+echo "#################################################################################"
+
 
 # install wavenet connection
 sudo kubectl apply -f https://github.com/weaveworks/weave/releases/download/v2.8.1/weave-daemonset-k8s.yaml
