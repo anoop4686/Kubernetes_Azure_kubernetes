@@ -1,5 +1,8 @@
 #! /bin/bash
 
+# Refference github
+# https://github.com/Aareez01/kubernetes-v1.30.2-cluster-using-kubeadm
+
 #setting DNS entry
 echo "nameserver 8.8.8.8"  >> /etc/resolv.conf
 
