@@ -68,8 +68,8 @@ sudo apt-mark hold kubelet kubeadm kubectl
 
 #Initialize the Cluster and Install CNI
 sudo kubeadm config images pull
-sudo kubeadm init
+#sudo kubeadm init
 
 #Apply the CNI YAML
-kubectl apply -f https://reweave.azurewebsites.net/k8s/v1.30/net.yaml
+# kubectl apply -f https://reweave.azurewebsites.net/k8s/v1.30/net.yaml
 
