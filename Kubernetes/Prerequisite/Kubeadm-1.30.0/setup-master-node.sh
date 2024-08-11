@@ -49,9 +49,7 @@ sysctl -p /etc/sysctl.conf
 
 # Modify containerd Configuration for systemd Support
 sudo rm -rf /etc/containerd/config.toml
-sudo rm -rf /etc/containerd/config.toml
-cp  /home/anoop/Desktop/config.toml /etc/containerd/config.toml
-cp /home/anoop/git/Kubernetes_Azure_kubernetes/Kubernetes/Prerequisite/Kubeadm-1.30.0 /etc/containerd/config.toml
+cp `pwd`/config.toml /etc/containerd/config.toml
 
 #  Restart containerd and Check the Status
 sudo systemctl restart containerd
@@ -70,8 +68,8 @@ sudo apt-mark hold kubelet kubeadm kubectl
 
 #Initialize the Cluster and Install CNI
 sudo kubeadm config images pull
-# sudo kubeadm init
+sudo kubeadm init
 
-# #Apply the CNI YAML
-# kubectl apply -f https://reweave.azurewebsites.net/k8s/v1.30/net.yaml
+#Apply the CNI YAML
+kubectl apply -f https://reweave.azurewebsites.net/k8s/v1.30/net.yaml
 
