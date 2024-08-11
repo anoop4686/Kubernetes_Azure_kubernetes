@@ -22,7 +22,7 @@ echo \
   "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
   $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
   sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-sudo apt-get update && sudo apt-get install containerd.io && sudo systemctl enable --now containerd
+sudo apt-get update && sudo apt-get install containerd.io -y && sudo systemctl enable --now containerd
 
 # Install CNI Plugin
 wget https://github.com/containernetworking/plugins/releases/download/v1.4.0/cni-plugins-linux-amd64-v1.4.0.tgz
@@ -72,4 +72,3 @@ sudo kubeadm config images pull
 
 #Apply the CNI YAML
 # kubectl apply -f https://reweave.azurewebsites.net/k8s/v1.30/net.yaml
-
