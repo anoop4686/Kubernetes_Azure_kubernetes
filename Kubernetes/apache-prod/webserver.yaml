@@ -1,10 +1,10 @@
-apiversion: v1
+apiVersion: v1
 kind: pod
 metadata:
   name: webserver
   nameserver: anoop
 spec:
-  container:
+  containers:
     name: nginx-webserver-webserver
     images: anoop4686/nginx-webserver-webserver:v1
     name: apache-currency-webserver
