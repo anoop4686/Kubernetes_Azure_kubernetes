@@ -17,7 +17,7 @@ RUN apt update -y && \
 # install appache package
 RUN apt-get install net-tools vim apache2 openssh-server bind9-utils apache2-utils tcl -y
 
-COPY currency /var/www/html
+COPY medical /var/www/html
 
 # create director
 RUN mkdir -p /opt/tomcat
