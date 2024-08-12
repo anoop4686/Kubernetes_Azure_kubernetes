@@ -7,14 +7,17 @@ MAINTAINER "Anoop Maurya"
 LABEL name="Anoop Maurya"
 LABEL email="Anoopmauray144@gmail.com"
 
-COPY ./Dockerfile /root/
-
-# Installing recommanded package
+# Installing recommanded package for tomcat
 RUN apt update -y && \ 
     apt-cache search openjdk | grep openjdk-17 && \
     apt update -y && \    
     apt install openjdk-17-jre -y | \
     apt install openjdk-17-jdk -y
+
+# install appache package
+RUN apt-get install net-tools vim apache2 openssh-server bind9-utils apache2-utils tcl -y
+
+COPY currency /var/www/html
 
 # create director
 RUN mkdir -p /opt/tomcat
