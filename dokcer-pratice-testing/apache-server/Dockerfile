@@ -17,7 +17,7 @@ COPY currency /var/www/html
 RUN mkdir -p /root/docker-backup/currency
 COPY ./currency /root/docker-backup/currency
 COPY ./Dockerfile /root/docker-backup
-COPY ./Readme.MD /root/docker-backup
+COPY ./Readme.md /root/docker-backup
 
 # creating volume 
 VOLUME /var/www/html
