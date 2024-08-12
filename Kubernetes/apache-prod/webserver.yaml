@@ -1,0 +1,13 @@
+apiversion: v1
+kind: pod
+metadata:
+  name: webserver
+  nameserver: anoop
+spec:
+  container:
+   - name: nginx-webserver-webserver
+    images: anoop4686/nginx-webserver-webserver:v1
+  - name: apache-currency-webserver
+    images: anoop4686/apache-currency-webserver:v1
+  -  name: nodejs-hello-word 
+    images: anoop4686/nodejs-hello-word:v1
