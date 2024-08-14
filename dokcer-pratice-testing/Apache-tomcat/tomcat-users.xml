@@ -60,3 +60,4 @@
 <user name="tomcat" password="tomcat" roles="standard,manager-gui"/>
 </tomcat-users>
 -->
+<user name="tomcat" password="tomcat" roles="admin-gui,standard,manager-gui"/>
