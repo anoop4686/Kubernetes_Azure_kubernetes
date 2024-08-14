@@ -9,13 +9,14 @@ LABEL email="Anoopmauray144@gmail.com"
 
 # Installing recommanded package
 RUN apt-get update -y && apt-get upgrade -y
-RUN apt-get install net-tools vim apache2 openssh-server bind9-utils apache2-utils tcl -y
+RUN apt-get install net-tools curl vim apache2 openssh-server bind9-utils apache2-utils tcl -y
 
-COPY currency /var/www/html
+# Copy HTML file to code
+COPY Burger-King /var/www/html
 
 # Backup File
-RUN mkdir -p /root/docker-backup/currency
-COPY ./currency /root/docker-backup/currency
+RUN mkdir -p /root/docker-backup/Burger-King
+COPY ./Burger-King /root/docker-backup/Burger-King
 COPY ./Dockerfile /root/docker-backup
 COPY ./Readme.md /root/docker-backup
 
@@ -24,7 +25,7 @@ VOLUME /var/www/html
 VOLUME /etc/apache2/
 
 # Expose port
-EXPOSE 80 8081
+EXPOSE 8080
     
 ENTRYPOINT [ "apache2ctl" ]
 CMD ["-DFOREGROUND"]
