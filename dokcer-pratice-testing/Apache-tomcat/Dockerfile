@@ -8,7 +8,7 @@ LABEL name="Anoop Maurya"
 LABEL email="Anoopmauray144@gmail.com"
 
 # Installing recommanded package for tomcat
-RUN apt update -y && \ 
+RUN apt-get update-y && \ 
     apt-cache search openjdk | grep openjdk-17 && \
     apt update -y && \    
     apt install openjdk-17-jre -y | \
@@ -31,6 +31,7 @@ RUN echo "export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64/" > /root/.bash_pr
 #RUN source /root/.bash_profile
 # source ~/.bash_profile
 #create working directory
+
 WORKDIR /opt/tomcat/apache-tomcat-10.1.26/bin/
 
 #backup file
