@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-custom-service
+  namespace: samsung-prod
+spec:
+  type: NodePort
+  selector:
+    env: prod
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+      nodePort: 32200
