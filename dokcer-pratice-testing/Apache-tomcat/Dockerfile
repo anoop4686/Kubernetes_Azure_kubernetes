@@ -42,6 +42,8 @@ COPY ./tomcat-users.xml /root/dokcer-backup
 # Copy user xml file
 RUN rm -rf /opt/tomcat/apache-tomcat-10.1.26/conf/tomcat-users.xml
 COPY ./tomcat-users.xml  /opt/tomcat/apache-tomcat-10.1.26/conf/
+COPY ./context.xml /opt/tomcat/apache-tomcat-10.1.26/webapps/host-manager/META-INF/context.xml
+COPY ./context.xml /opt/tomcat/apache-tomcat-10.1.26/webapps/manager/META-INF/context.xml
 
 #exposing port
 EXPOSE 80 8080 8081 8085 443
