@@ -1,4 +1,4 @@
-FROM ubuntu:22.04
+FROM ubuntu:24.04
 
 # Name or email of person or group 
 MAINTAINER "Anoop Maurya"
@@ -8,9 +8,9 @@ LABEL name="Anoop Maurya"
 LABEL email="Anoopmauray144@gmail.com"
 
 # Installing recommanded package for tomcat
-RUN apt-get update-y && \ 
+RUN apt update -y && \ 
     apt-cache search openjdk | grep openjdk-17 && \
-    apt update -y | \    
+    apt update -y && \    
     apt install openjdk-17-jre -y | \
     apt install openjdk-17-jdk -y
 
