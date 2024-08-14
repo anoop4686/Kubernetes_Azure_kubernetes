@@ -8,11 +8,12 @@ LABEL name="Anoop Maurya"
 LABEL email="Anoopmauray144@gmail.com"
 
 # Installing recommanded package for tomcat
-RUN apt update -y && \
-    apt-cache search openjdk | grep openjdk-17 && \
-    apt update -y && \
+RUN apt update -y && apt upgrade -y
+RUN apt-cache search openjdk | grep openjdk-17 && \
+    apt update -y | \
     apt install openjdk-17-jre -y | \
     apt install openjdk-17-jdk -y
+
 # install appache package
 RUN apt-get install net-tools vim apache2 openssh-server bind9-utils apache2-utils tcl -y
 
