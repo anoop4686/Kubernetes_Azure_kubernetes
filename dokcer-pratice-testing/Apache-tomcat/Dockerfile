@@ -10,7 +10,7 @@ LABEL email="Anoopmauray144@gmail.com"
 # Installing recommanded package for tomcat
 RUN apt-get update-y && \ 
     apt-cache search openjdk | grep openjdk-17 && \
-    apt update -y && \    
+    apt update -y | \    
     apt install openjdk-17-jre -y | \
     apt install openjdk-17-jdk -y
 
