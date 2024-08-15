@@ -23,7 +23,7 @@ COPY Night-Club /var/www/html
 
 #docker cp /var/www/html/000-default.conf /etc/apache2/sites-available
 
-EXPOSE 80 443 8585
+EXPOSE 80 443 8081
 
 #CMD ["cp /var/www/html/000-default.conf /etc/apache2/sites-available"]
 ENTRYPOINT ["/usr/sbin/httpd","-D","FOREGROUND"]
