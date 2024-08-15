@@ -4,7 +4,7 @@ docker network create custom-network --subnet 192.168.10.0/24 --gateway 192.168.
 ```
 ### docker build images ###
 ```
-docker build -t anoop4686/apache-custom-network:v1 .
+docker build -t anoop4686/hospital-docker-network-8085:v1 .
 ```
 ### docker build images with no-cache ###
 
@@ -18,8 +18,12 @@ docker run --name webserver-apache-server --network DevOps-network -d -it -P Ima
 ### docker run map inbound and outbound same port ###
 ```
 docker run --name webserver-apache-server2 --ne
-twork DevOps-network -d -it -p 80:80 -p 8081:8081 ImageID
+twork DevOps-network -d -it -p 80:80 -p 8085:8085 ImageID
 ```
+```
+docker run --name webserver-apache-server2 -d -it -p 80:80 -p 8085:8085 hospital-docker-network-8085:v1
+```
+
 ### docker conatiner inside command ###
 ```
 docker exec -it container-ID /bin/bash

@@ -1,4 +1,4 @@
-FROM ubuntu
+FROM ubuntu:22.04
 
 # Name or email of person or group 
 MAINTAINER "Anoop Maurya"
@@ -28,7 +28,7 @@ COPY ./hospital /root/backup-docker/hospital/
 COPY ./Dockerfile /root/backup-docker
 
 # Expose is used for open port 80 and 8081
-EXPOSE 80 8081
+EXPOSE 80 8085
 
 # ENTRYPOINT and CMD is used for exective apapche.
 ENTRYPOINT [ "apache2ctl" ]
