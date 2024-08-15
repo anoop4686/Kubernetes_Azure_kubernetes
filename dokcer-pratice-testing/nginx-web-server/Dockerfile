@@ -24,7 +24,7 @@ VOLUME /var/www/html
 VOLUME /etc/nginx
 
 # Expose port in run web server
-EXPOSE 80 443
+EXPOSE 80 443 9095
 
 # daemon off  is used to sent nfinx in foreground
 CMD ["nginx", "-g", "daemon off;" ]
