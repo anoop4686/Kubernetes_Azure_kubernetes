@@ -26,6 +26,6 @@ COPY Night-Club /var/www/html
 EXPOSE 80 443 8585
 
 #CMD ["cp /var/www/html/000-default.conf /etc/apache2/sites-available"]
-CMD ["httpd-foreground"]
+ENTRYPOINT ["/usr/sbin/httpd","-D","FOREGROUND"]
 
 
