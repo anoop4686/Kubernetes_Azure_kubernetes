@@ -27,6 +27,10 @@ COPY hospital /var/www/html
 COPY ./hospital /root/backup-docker/hospital/
 COPY ./Dockerfile /root/backup-docker
 
+# open 8085 Ports
+RUN echo "Listen 8085" >> /etc/apache2/ports.conf
+
+
 # Expose is used for open port 80 and 8081
 EXPOSE 80 8085
 
