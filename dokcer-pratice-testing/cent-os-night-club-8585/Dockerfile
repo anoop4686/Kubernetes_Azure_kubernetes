@@ -21,7 +21,8 @@ RUN yum install httpd -y && \
 # copy file local machine to Docker host machine
 COPY Night-Club /var/www/html
 
-#docker cp /var/www/html/000-default.conf /etc/apache2/sites-available
+# Open Ports
+RUN echo "Listen 8585" >> /etc/httpd/conf/httpd.conf
 
 EXPOSE 8585
 
