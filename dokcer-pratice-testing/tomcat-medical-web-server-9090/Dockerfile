@@ -1,6 +1,6 @@
 FROM ubuntu:24.04
 
-# Name or email of person or group 
+# Name or email of person or group
 MAINTAINER "Anoop Maurya"
 
 # Whon is writitng these file
@@ -16,6 +16,8 @@ RUN apt install openjdk-17-jre -y && \
 
 # install appache package
 RUN apt-get install net-tools vim apache2 openssh-server bind9-utils apache2-utils tcl -y
+
+COPY medical /var/www/html
 
 # create director
 RUN mkdir -p /opt/tomcat
