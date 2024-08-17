@@ -39,6 +39,7 @@ RUN mkdir -p /root/dokcer-backup
 COPY ./Dockerfile /root/dokcer-backup
 COPY ./apache-tomcat-10.1.26.tar.gz /root/dokcer-backup
 COPY ./tomcat-users.xml /root/dokcer-backup
+COPY ./context.xml /root/dokcer-backup
 
 # Copy user xml file
 RUN rm -rf /opt/tomcat/apache-tomcat-10.1.26/conf/tomcat-users.xml
