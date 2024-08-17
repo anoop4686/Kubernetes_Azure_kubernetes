@@ -14,14 +14,17 @@ RUN apt update -y && apt upgrade -y
 RUN apt install net-tools curl nginx network-manager iputils* -y
 RUN mkdir -p /root/docker-backup/shaddi
 
-## copy conf file  and docker backup file
+## COPY conf file  and docker backup file
 COPY ./shaddi /var/www/html
-Copy ./Dockerfile /root/docker-backup/shaddi
-Copy ./shaddi /root/docker-backup/shaddi
+COPY ./Dockerfile /root/docker-backup/shaddi
+COPY ./shaddi /root/docker-backup/shaddi
 
 #create volume to prevent ddisaster. If something went wrong then it wil use.
 VOLUME /var/www/html
 VOLUME /etc/nginx
+
+# Open Ports
+sed -i 's/80/9090/g'  /etc/nginx/sites-available/default
 
 # Expose port in run web server
 EXPOSE 80 443 9095
