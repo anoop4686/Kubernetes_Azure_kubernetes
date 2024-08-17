@@ -45,7 +45,7 @@ COPY ./context.xml /opt/tomcat/apache-tomcat-10.1.26/webapps/host-manager/META-I
 COPY ./context.xml /opt/tomcat/apache-tomcat-10.1.26/webapps/manager/META-INF/context.xml
 
 #exposing port
-EXPOSE  80 8080 8081 8085 443
+EXPOSE  80 8080 8081 8085 443 9090
 
 # run tomcat server.
 CMD ["/opt/tomcat/apache-tomcat-10.1.26/bin/catalina.sh","run"]
