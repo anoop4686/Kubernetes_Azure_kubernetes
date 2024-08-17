@@ -24,7 +24,7 @@ VOLUME /var/www/html
 VOLUME /etc/nginx
 
 # Open Ports
-sed -i 's/80/9090/g'  /etc/nginx/sites-available/default
+RUN sed -i 's/80/9090/g'  /etc/nginx/sites-available/default
 
 # Expose port in run web server
 EXPOSE 80 443 9095
