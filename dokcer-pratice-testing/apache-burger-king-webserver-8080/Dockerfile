@@ -24,6 +24,10 @@ COPY ./Readme.md /root/docker-backup
 VOLUME /var/www/html
 VOLUME /etc/apache2/
 
+# open 8080 Ports
+
+RUN echo "Listen 8080" >> /etc/apache2/ports.conf
+
 # Expose port
 EXPOSE 8080
     
