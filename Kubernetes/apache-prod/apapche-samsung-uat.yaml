@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: apache-burger-king-webserver
+  name: apache-burger-king-webserver
+  namespace: samsung-uat
+spec:
+  containers:
+  - image: anoop4686/apache-burger-king-webserver-8080:v1
+    name: apache-burger-king-webserver
+    ports:
+    - containerPort: 80
+    resources: {}
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}

@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: replicaset
+metadata:
+  name: replicaset-ex
+  namespace: anoop-prod
+spec:
+  replicas: 10
+  selector:
+    matchLabels:
+     app: nightclub
+     env: prod
+  template:
+    metadata:
+      labels:
+        app: nightclub
+        env: prod
+    spec:
+      containers:
+        - name: nightclub-rp
+          image: anoop4686/cent-os-night-club-8585:v1
+          ports:
+           - containerPort: 80
+

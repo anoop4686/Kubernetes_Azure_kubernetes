@@ -1,9 +1,0 @@
-apiVersion: v1
-kind: Pod
-metadata:
- name: app1
- namespace: samsung-prod
-spec:
- containers:
-   - name: apache-prod
-     image: anoop4686/apache-web-server:v1

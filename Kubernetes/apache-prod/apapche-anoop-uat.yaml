@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: anoop-burger-king-uat
+  name: anoop-burger-king-uat-2
+  namespace: anoop-uat
+spec:
+  nodeName: worker-node-2
+  containers:
+  - image: anoop4686/apache-burger-king-webserver-8080:v1
+    name: apache-burger-king-webserver
+    ports:
+    - containerPort: 80
